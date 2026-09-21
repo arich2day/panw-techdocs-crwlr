@@ -1,0 +1,54 @@
+{
+  "targets": [
+    {
+      "id": "target-sase",
+      "name": "Prisma SASE & SSE Technical Guide",
+      "technology": "sase",
+      "vendor": "all",
+      "google_doc_id": "1A2B3C4D5E6F7G8H9I0J_EXAMPLE_SASE_DOC",
+      "description": "Consolidated SASE architecture, release notes, and battlecards for NotebookLM",
+      "last_synced": null,
+      "status": "unverified"
+    },
+    {
+      "id": "target-browser",
+      "name": "Enterprise Browser Deep-Dive",
+      "technology": "browser",
+      "vendor": "all",
+      "google_doc_id": "1B2C3D4E5F6G7H8I9J0K_EXAMPLE_BROWSER_DOC",
+      "description": "Prisma Access Browser and Island Enterprise Browser comparative analysis",
+      "last_synced": null,
+      "status": "unverified"
+    },
+    {
+      "id": "target-ngfw",
+      "name": "Next-Gen Firewall & PAN-OS Reference",
+      "technology": "ngfw",
+      "vendor": "all",
+      "google_doc_id": "1C2D3E4F5G6H7I8J9K0L_EXAMPLE_NGFW_DOC",
+      "description": "Hardware, VM-series, PAN-OS SP3 architecture, and FortiOS comparison",
+      "last_synced": null,
+      "status": "unverified"
+    },
+    {
+      "id": "target-secops",
+      "name": "Cortex & Autonomous SOC Playbooks",
+      "technology": "secops",
+      "vendor": "all",
+      "google_doc_id": "1D2E3F4G5H6I7J8K9L0M_EXAMPLE_SECOPS_DOC",
+      "description": "Cortex XDR, XSOAR, and XSIAM technical documentation",
+      "last_synced": null,
+      "status": "unverified"
+    },
+    {
+      "id": "target-cloud",
+      "name": "Prisma Cloud & CNAPP Architecture",
+      "technology": "cloud",
+      "vendor": "all",
+      "google_doc_id": "1E2F3G4H5I6J7K8L9M0N_EXAMPLE_CLOUD_DOC",
+      "description": "Prisma Cloud CSPM, CWPP, and Code-to-Cloud architecture",
+      "last_synced": null,
+      "status": "unverified"
+    }
+  ]
+}

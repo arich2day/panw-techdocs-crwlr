@@ -1,0 +1,96 @@
+name: SyncLM TechDocs Automated Pipeline
+
+on:
+  schedule:
+    # Run weekly at 04:00 AM UTC every Monday
+    - cron: '0 4 * * 1'
+  workflow_dispatch:
+    inputs:
+      technology:
+        description: 'Technology Vertical to Sync'
+        required: true
+        default: 'all'
+        type: choice
+        options:
+          - all
+          - sase
+          - browser
+          - ngfw
+          - secops
+          - cloud
+      vendor:
+        description: 'Vendor Filter'
+        required: true
+        default: 'all'
+        type: choice
+        options:
+          - all
+          - panw
+          - zscaler
+          - netskope
+          - island
+          - cloudflare
+          - fortinet
+      doc_type:
+        description: 'Content Type Filter'
+        required: true
+        default: 'all'
+        type: choice
+        options:
+          - all
+          - architecture
+          - release_notes
+          - api_specs
+          - battlecards
+      dry_run:
+        description: 'Run in Dry-Run Simulation Mode (skip Google Docs write)'
+        required: true
+        default: false
+        type: boolean
+
+permissions:
+  contents: write
+
+jobs:
+  sync:
+    name: Scrape, Normalize & Sync Technical Docs
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python 3.11
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+          cache: 'pip'
+
+      - name: Install Dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+
+      - name: Run Documentation Sync Pipeline
+        env:
+          GCP_SA_KEY_B64: ${{ secrets.GCP_SA_KEY_B64 }}
+          GCP_SERVICE_ACCOUNT_JSON: ${{ secrets.GCP_SERVICE_ACCOUNT_JSON }}
+        run: |
+          DRY_RUN_FLAG=""
+          if [ "${{ github.event.inputs.dry_run }}" = "true" ]; then
+            DRY_RUN_FLAG="--dry-run"
+          fi
+
+          python scripts/run_sync.py \
+            --tech "${{ github.event.inputs.technology || 'all' }}" \
+            --vendor "${{ github.event.inputs.vendor || 'all' }}" \
+            --doc-type "${{ github.event.inputs.doc_type || 'all' }}" \
+            $DRY_RUN_FLAG
+
+      - name: Commit & Push Updated Hashes
+        if: github.event.inputs.dry_run != 'true'
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          git add data/hashes.json
+          git diff --quiet && git diff --staged --quiet || (git commit -m "chore(sync): update document hashes [skip ci]" && git push)
