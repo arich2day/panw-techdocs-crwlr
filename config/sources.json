@@ -1,0 +1,86 @@
+[
+  {
+    "id": "panw_sase_prisma",
+    "title": "Prisma Access Architecture & Release Notes",
+    "domain": "SASE & SSE",
+    "domain_id": "sase",
+    "vendor": "Palo Alto Networks",
+    "vendor_type": "primary",
+    "description": "Prisma Access multi-tenant backbone, service connection topology, QoS, and release caveat advisories.",
+    "urls": [
+      "https://docs.paloaltonetworks.com/prisma/prisma-access/prisma-access-panorama-admin/prisma-access-overview/prisma-access-infrastructure",
+      "https://docs.paloaltonetworks.com/prisma/prisma-access/release-notes"
+    ],
+    "tags": ["Prisma Access", "Zero Trust", "Cloud SWG", "ZTNA"]
+  },
+  {
+    "id": "panw_browser_talon",
+    "title": "Prisma Access Browser Enterprise Architecture & DLP Controls",
+    "domain": "Enterprise Browser",
+    "domain_id": "browser",
+    "vendor": "Palo Alto Networks",
+    "vendor_type": "primary",
+    "description": "Chromium-based enterprise security posture, clipboard/screenshot governance, data loss prevention, and identity isolation.",
+    "urls": [
+      "https://docs.paloaltonetworks.com/prisma-access-browser",
+      "https://docs.paloaltonetworks.com/prisma-access-browser/release-notes"
+    ],
+    "tags": ["Prisma Browser", "Talon", "Chromium", "DLP", "Isolation"]
+  },
+  {
+    "id": "comp_sase_zscaler",
+    "title": "Zscaler Zero Trust Exchange (ZIA & ZPA) Architecture & Release Delta",
+    "domain": "SASE & SSE",
+    "domain_id": "sase",
+    "vendor": "Zscaler",
+    "vendor_type": "competitor",
+    "description": "ZIA/ZPA Central Authority, Public Service Edges, App Connectors, and competitive release delta.",
+    "urls": [
+      "https://help.zscaler.com/zia/zia-architecture-overview",
+      "https://help.zscaler.com/zia/release-notes"
+    ],
+    "tags": ["Zscaler", "ZIA", "ZPA", "Competitive", "SSE"]
+  },
+  {
+    "id": "comp_browser_island",
+    "title": "Island Enterprise Browser Architecture & Security Model",
+    "domain": "Enterprise Browser",
+    "domain_id": "browser",
+    "vendor": "Island.io",
+    "vendor_type": "competitor",
+    "description": "Standalone enterprise browser security model, local policy enforcement, watermarking, and remote session control.",
+    "urls": [
+      "https://www.island.io/product",
+      "https://www.island.io/platform"
+    ],
+    "tags": ["Island", "Enterprise Browser", "Chromium", "Competitive"]
+  },
+  {
+    "id": "panw_ngfw_panos",
+    "title": "PAN-OS 11.x Core Architecture, SP3 Engine & Upgrade Advisories",
+    "domain": "NGFW & PAN-OS",
+    "domain_id": "ngfw",
+    "vendor": "Palo Alto Networks",
+    "vendor_type": "primary",
+    "description": "Single-Pass Parallel Processing (SP3), App-ID, User-ID, hardware acceleration, and PAN-OS 11.x upgrade advisories.",
+    "urls": [
+      "https://docs.paloaltonetworks.com/pan-os",
+      "https://docs.paloaltonetworks.com/pan-os/release-notes"
+    ],
+    "tags": ["PAN-OS", "NGFW", "SP3", "App-ID", "Hardware"]
+  },
+  {
+    "id": "panw_cortex_secops",
+    "title": "Cortex XDR, XSOAR & XSIAM Autonomous SOC Playbooks",
+    "domain": "Cortex & SecOps",
+    "domain_id": "secops",
+    "vendor": "Palo Alto Networks",
+    "vendor_type": "primary",
+    "description": "Cortex XSIAM data lake telemetry, XSOAR incident automation playbooks, and threat correlation rules.",
+    "urls": [
+      "https://docs.paloaltonetworks.com/cortex/cortex-xdr",
+      "https://docs.paloaltonetworks.com/cortex/cortex-xsoar/release-notes"
+    ],
+    "tags": ["Cortex", "XSIAM", "XSOAR", "SOC", "Automation"]
+  }
+]

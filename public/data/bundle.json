@@ -1,0 +1,143 @@
+{
+  "generated_at": "2026-09-21T23:41:18.557391+00:00",
+  "total_targets": 6,
+  "total_words": 2225,
+  "targets": [
+    {
+      "id": "panw_sase_prisma",
+      "title": "Prisma Access Architecture & Release Notes",
+      "domain": "SASE & SSE",
+      "domain_id": "sase",
+      "vendor": "Palo Alto Networks",
+      "vendor_type": "primary",
+      "description": "Prisma Access multi-tenant backbone, service connection topology, QoS, and release caveat advisories.",
+      "urls": [
+        "https://docs.paloaltonetworks.com/prisma/prisma-access/prisma-access-panorama-admin/prisma-access-overview/prisma-access-infrastructure",
+        "https://docs.paloaltonetworks.com/prisma/prisma-access/release-notes"
+      ],
+      "tags": [
+        "Prisma Access",
+        "Zero Trust",
+        "Cloud SWG",
+        "ZTNA"
+      ],
+      "word_count": 118,
+      "filename": "panw_sase_prisma.md",
+      "markdown": "# [DOMAIN: SASE & SSE] [VENDOR: PALO ALTO NETWORKS] Prisma Access Architecture & Release Notes\n- Target ID: panw_sase_prisma\n- Generated: 2026-09-21 23:41:13 UTC\n- Word Count: 118 words\n- Source URLs: https://docs.paloaltonetworks.com/prisma/prisma-access/prisma-access-panorama-admin/prisma-access-overview/prisma-access-infrastructure, https://docs.paloaltonetworks.com/prisma/prisma-access/release-notes\n---\n\n### Enterprise Architecture & Strategic Overview\nPrisma Access multi-tenant backbone, service connection topology, QoS, and release caveat advisories.\n\n#### Core Architecture Principles\n- **Domain**: SASE & SSE (SASE)\n- **Vendor Alignment**: Palo Alto Networks (PRIMARY)\n- **Zero Trust Tenet**: Explicit verification of identity, device posture, and continuous content inspection.\n- **Telemetry & Logging**: Native integration with enterprise SIEM/SOAR (Cortex XSIAM, Splunk) and Cloud Data Lakes.\n\n#### Technical Capabilities & Operational Caveats\n- **Datapath Processing**: Single-pass parallel architecture eliminating proxy chaining latency.\n- **High Availability & Redundancy**: Multi-region active-active deployment with automated route failover (BGP/IPsec).\n- **Policy Lifecycle**: Centralized policy orchestration via Panorama, Strata Cloud Manager, or Terraform/pan.dev APIs.\n- **Key Tags**: Prisma Access, Zero Trust, Cloud SWG, ZTNA\n"
+    },
+    {
+      "id": "panw_browser_talon",
+      "title": "Prisma Access Browser Enterprise Architecture & DLP Controls",
+      "domain": "Enterprise Browser",
+      "domain_id": "browser",
+      "vendor": "Palo Alto Networks",
+      "vendor_type": "primary",
+      "description": "Chromium-based enterprise security posture, clipboard/screenshot governance, data loss prevention, and identity isolation.",
+      "urls": [
+        "https://docs.paloaltonetworks.com/prisma-access-browser",
+        "https://docs.paloaltonetworks.com/prisma-access-browser/release-notes"
+      ],
+      "tags": [
+        "Prisma Browser",
+        "Talon",
+        "Chromium",
+        "DLP",
+        "Isolation"
+      ],
+      "word_count": 221,
+      "filename": "panw_browser_talon.md",
+      "markdown": "# [DOMAIN: ENTERPRISE BROWSER] [VENDOR: PALO ALTO NETWORKS] Prisma Access Browser Enterprise Architecture & DLP Controls\n- Target ID: panw_browser_talon\n- Generated: 2026-09-21 23:41:14 UTC\n- Word Count: 221 words\n- Source URLs: https://docs.paloaltonetworks.com/prisma-access-browser, https://docs.paloaltonetworks.com/prisma-access-browser/release-notes\n---\n\n### Source: https://docs.paloaltonetworks.com/prisma-access-browser\n\nThe browser has become the new operating system for enterprises, where work, data and AI converge. 85% of a worker's day is now spent in the browser, with users accessing an ever-growing number of SaaS, web, and GenAI applications. But while work in the browser is contributing to increased productivity, it has also become the entry point of attacks, with 95% of organizations reporting a security incident originating from the browser. Furthermore, agentic browsing is quickly evolving, creating greater security and data exposure risks.\n\n\nPrisma Browser is the industry\u00e2s most secure browser, creating a secure workspace on managed and unmanaged devices. For the first time, users can enjoy consistent, frictionless zero trust access to SaaS, GenAI and private applications on any device. Available as a browser, an extension for consumer browsers, and a mobile app, it provides secure access from any location in minutes.\n\n\nPrisma Browser leverages Palo Alto Networks AI-powered security engines to secure all traffic, including encrypted traffic, and stop the most advanced threats. It delivers the visibility and granular last-mile control needed to boost worker productivity without sacrificing sensitive data. And in the new era of agentic browsers, it secures agentic AI by enforcing guardrails on behavior and enabling governance on autonomous workflows. All while delivering a familiar browser experience with zero learning curve.\n\nFocus\n"
+    },
+    {
+      "id": "comp_sase_zscaler",
+      "title": "Zscaler Zero Trust Exchange (ZIA & ZPA) Architecture & Release Delta",
+      "domain": "SASE & SSE",
+      "domain_id": "sase",
+      "vendor": "Zscaler",
+      "vendor_type": "competitor",
+      "description": "ZIA/ZPA Central Authority, Public Service Edges, App Connectors, and competitive release delta.",
+      "urls": [
+        "https://help.zscaler.com/zia/zia-architecture-overview",
+        "https://help.zscaler.com/zia/release-notes"
+      ],
+      "tags": [
+        "Zscaler",
+        "ZIA",
+        "ZPA",
+        "Competitive",
+        "SSE"
+      ],
+      "word_count": 114,
+      "filename": "comp_sase_zscaler.md",
+      "markdown": "# [DOMAIN: SASE & SSE] [VENDOR: ZSCALER] Zscaler Zero Trust Exchange (ZIA & ZPA) Architecture & Release Delta\n- Target ID: comp_sase_zscaler\n- Generated: 2026-09-21 23:41:15 UTC\n- Word Count: 114 words\n- Source URLs: https://help.zscaler.com/zia/zia-architecture-overview, https://help.zscaler.com/zia/release-notes\n---\n\n### Enterprise Architecture & Strategic Overview\nZIA/ZPA Central Authority, Public Service Edges, App Connectors, and competitive release delta.\n\n#### Core Architecture Principles\n- **Domain**: SASE & SSE (SASE)\n- **Vendor Alignment**: Zscaler (COMPETITOR)\n- **Zero Trust Tenet**: Explicit verification of identity, device posture, and continuous content inspection.\n- **Telemetry & Logging**: Native integration with enterprise SIEM/SOAR (Cortex XSIAM, Splunk) and Cloud Data Lakes.\n\n#### Technical Capabilities & Operational Caveats\n- **Datapath Processing**: Single-pass parallel architecture eliminating proxy chaining latency.\n- **High Availability & Redundancy**: Multi-region active-active deployment with automated route failover (BGP/IPsec).\n- **Policy Lifecycle**: Centralized policy orchestration via Panorama, Strata Cloud Manager, or Terraform/pan.dev APIs.\n- **Key Tags**: Zscaler, ZIA, ZPA, Competitive, SSE\n"
+    },
+    {
+      "id": "comp_browser_island",
+      "title": "Island Enterprise Browser Architecture & Security Model",
+      "domain": "Enterprise Browser",
+      "domain_id": "browser",
+      "vendor": "Island.io",
+      "vendor_type": "competitor",
+      "description": "Standalone enterprise browser security model, local policy enforcement, watermarking, and remote session control.",
+      "urls": [
+        "https://www.island.io/product",
+        "https://www.island.io/platform"
+      ],
+      "tags": [
+        "Island",
+        "Enterprise Browser",
+        "Chromium",
+        "Competitive"
+      ],
+      "word_count": 1197,
+      "filename": "comp_browser_island.md",
+      "markdown": "# [DOMAIN: ENTERPRISE BROWSER] [VENDOR: ISLAND.IO] Island Enterprise Browser Architecture & Security Model\n- Target ID: comp_browser_island\n- Generated: 2026-09-21 23:41:15 UTC\n- Word Count: 1,197 words\n- Source URLs: https://www.island.io/product, https://www.island.io/platform\n---\n\n### Source: https://www.island.io/product\n\n## Why We Built the Enterprise Browser\n\nSee how Island reimagined the browser to give organizations control, security, and productivity, without compromise.\n\nControl Application Access\n\nWith Island, you can set conditional access controls that assess identity, device, network, location, application, and more, entirely within the browser itself. Controls are applied universally, enabling users to safely access data and resources anywhere, on any device.\n\nManage Devices\n\nIsland automatically assesses device posture to ensure devices meet policy requirements. Device management even extends to applications outside of the browser, with policy controls for tools like Zoom, Slack, Teams, or WhatsApp.\n\nAutomate Applications\n\nEnhance or optimize any web application using powerful automations, without touching source code or relying on proprietary APIs. Automate common workflows, reduce human error, and tailor SaaS and web applications around the way you work.\n\nZero Trust Network Access\n\nDeliver zero trust network access to private apps. Protect from network or endpoint attacks. Island makes deployment simple, security posture stronger, and separate agents unnecessary.\n\nDefend Against Web Threats\n\nThe Enterprise Browser naturally defends against the full spectrum of web-based threats, including built-in protection from malware, phishing attacks, session hijacking, man-in-the-browser, and other browser exploits.\n\nProtect Data Intelligently\n\nCreate granular, context-based policies that allow data to move freely between enterprise apps, while preventing data leakage. Last-mile controls govern print, downloads, screenshots, and copy/paste even outside the browser.\n\nAnalyze User Behavior\n\nSee all work activity in high fidelity, while keeping personal browsing private. Let users know how and when they are monitored with the privacy indicator, and share analytics with your SIEM for enterprise-wide visibility.\n\nSecure Privileged Access\n\nEnhance protections for critical applications like admin consoles or backend system access. Enforce security posture and user authentication while capturing full session details, including the user, device details, and specific actions.\n\nBoost Productivity\n\nHand your users powerful, built-in productivity tools, like an AI Assistant for writing, researching, and summarizing, a smart clipboard with advanced copy/paste features, an ad and tracker blocker for faster browsing, a geolocation anonymizer, and more.\n\nCustomize Your Browser\n\nFully customize the end-user interface of the browser including color scheme, background, user messages and notifications. With Island, you deliver a unified, consistent, branded workplace experience that brings your entire organization together.\n\nManage Passwords\n\nUsers auto-generate, save, and retrieve passwords with one click. Passwords are encrypted and stored using a zero-knowledge architecture. and it\u2019s fully integrated. There are no extensions to deploy or manage.\n\nEnhance Employee Experience\n\nIsland DEX collects rich analytics on application usage, performance, network, and device health to inform and optimize your IT strategy. With a complete view of your digital employee experience, you solve IT issues before they become tickets.\n\nDownload the VDI Solution Brief to understand how the enterprise browser is the modern alternative to Virtual Desktop Infrastructure.\n\nDownload the Solution Brief\n\nWhat is the Island Enterprise Browser?\n\nThe Enterprise Browser: secure, enterprise grade, and specifically for business use. Unlike consumer browsers, Island's solution offers robust security, visibility, and manageability for organizations, helping protect corporate data, prevent unauthorized sharing, and monitor malicious activities. Built on a Chromium-based browser, it aims to simplify operations and improve productivity by integrating security features directly into the browser.\n\nWhat platforms and operating systems does Island support?\n\nIsland supports all major platforms, including Windows, MacOS, iOS, iPadOS, Android, Linux, ChromeOS, and IGEL OS. It is also available as a browser extension for Chrome, Edge, Safari, Firefox, and any Chromium-based browser, including ChatGPT Atlas and Perplexity Comet.\n\nDo users have to switch browsers to use Island?\n\nIsland supports both our full Chromium-based browser and our browser extension, which means users do not need to switch browsers to experience Island benefits. The Island browser extension supports most of the capabilities of the full browser, except in the few cases where parity is not possible due to restrictions on extensions. The extension supports Chrome, Edge, Safari, Firefox, and any Chromium-based browser, including ChatGPT Atlas and Perplexity Comet.\n\nIs Island a desktop virtualization platform?\n\nAn Enterprise Browser is a web browser built with security, privacy, performance, and enterprise integrations embedded directly into its core. It allows organisations to centrally manage and enforce policies, which ensures improved security, improved performance, ease of deployment, and full context and control.\n\nIs it safe to install and use on my client\u2019s device?\n\nIsland prioritizes transparency and security. It only collects necessary data for operation, management, and security, with no unnecessary personal or sensitive data gathered without consent. All data, both in transit and at rest, is encrypted using industry-standard protocols (TLS), and access is strictly controlled. Administrators have granular privacy controls, and Island does not access or transmit user content unless explicitly configured. The platform is designed for regulatory compliance (GDPR, HIPAA), offers audit logs, and does not sell or share customer data with third parties. Detailed documentation and attestations are available upon request.\n\nWill my personal activity be monitored?\n\nIsland is designed to protect corporate data without intruding on your personal browsing. It separates work and personal activity so that security policies apply only to work-related sites, while personal sites remain private. Clear, on-screen indicators ensure you know when you\u2019re in a monitored work or unmonitored private environment.\n\nWhat are common use cases the Island Enterprise Browser solves?\n\nIsland Enterprise Browser use cases include:\n\n- Secure SaaS and web app access without VPNs or proxies\n- Data loss prevention (DLP) for websites, desktop apps, downloads, uploads, copy/paste, printing, and screenshots\n- Application boundaries to prevent data from leaking outside of approved work apps\n- Workforce privacy by separating work and personal browsing\n- Secure remote and hybrid work on any device (including BYOD)\n- Controlled third\u2011party/contractor access to specific apps\n- Regulatory compliance for finance, healthcare, government, etc.\n- Enhanced visibility and incident response through detailed browser activity log\n\nWhat industries are adopting the Island Enterprise Browser?\n\nIndustries adopting the Island Enterprise Browser include:\n\n\n**Finance**: Secure access to trading/CRM apps with no\u2011download or copy/paste, meeting compliance while enabling remote work.\n\n**Healthcare**: Apply DLP controls to EHR systems for HIPAA compliance, keeping patient data safe on personal devices.\n\n**Retail**: Give vendors access only to specific apps with identity checks and restricted data actions, reducing supply chain risk.\n\n**Technology**: Protect source code and customer data on BYOD by enforcing policies in the browser without managing the whole device. \n\nAnd many more, including hospitality, manufacturing, higher education, law, pharma, and tech.\n\nBYOD is a user dream but a security nightmare. The Enterprise Browser delivers both flexibility and total protection.\n\nBYOD Workforce\n\nGive newly acquired teams secure access on day one.\n\nM&A Onboarding\n\nStop backhauling traffic to secure it. Get native safety built directly into your browser.\n\nVDI Reduction\n\nGet total visibility, data security, and simple contractor access with the Enterprise Browser.\n\n3rd Party Onboarding\n\nFlexibility shouldn't cost you control. Get both with the Enterprise Browser.\n\nSaaS and Web Apps\n\nStop insider threats and errors by layering control over admin interactions; no source code required.\n\nPrivileged User Access\n\nImagine your zero trust architecture powered by the browser itself.\n\nZero Trust\n\nNaturally protect organizations from the full scope of web threats.\n\nSafe Browsing\n\nGive users the freedom to innovate, without opening the door to risk.\n\nEnable AI at Work\n"
+    },
+    {
+      "id": "panw_ngfw_panos",
+      "title": "PAN-OS 11.x Core Architecture, SP3 Engine & Upgrade Advisories",
+      "domain": "NGFW & PAN-OS",
+      "domain_id": "ngfw",
+      "vendor": "Palo Alto Networks",
+      "vendor_type": "primary",
+      "description": "Single-Pass Parallel Processing (SP3), App-ID, User-ID, hardware acceleration, and PAN-OS 11.x upgrade advisories.",
+      "urls": [
+        "https://docs.paloaltonetworks.com/pan-os",
+        "https://docs.paloaltonetworks.com/pan-os/release-notes"
+      ],
+      "tags": [
+        "PAN-OS",
+        "NGFW",
+        "SP3",
+        "App-ID",
+        "Hardware"
+      ],
+      "word_count": 458,
+      "filename": "panw_ngfw_panos.md",
+      "markdown": "# [DOMAIN: NGFW & PAN-OS] [VENDOR: PALO ALTO NETWORKS] PAN-OS 11.x Core Architecture, SP3 Engine & Upgrade Advisories\n- Target ID: panw_ngfw_panos\n- Generated: 2026-09-21 23:41:16 UTC\n- Word Count: 458 words\n- Source URLs: https://docs.paloaltonetworks.com/pan-os, https://docs.paloaltonetworks.com/pan-os/release-notes\n---\n\n### Source: https://docs.paloaltonetworks.com/pan-os\n\nPAN\u00e2OS\u00c2\u00ae is the software that runs all Palo Alto Networks\u00c2\u00ae next-generation firewalls. By leveraging the key technologies that are built into PAN\u00e2OS natively\u00e2App\u00e2ID, Content\u00e2ID, Device-ID, and User\u00e2ID\u00e2you can have complete visibility and control of the applications in use across all users and devices in all locations all the time. And, because inline ML and the application and threat signatures automatically reprogram your firewall with the latest intelligence, you can be assured that all traffic you allow is free of known and unknown threats.\u00a0\n\n\nReview the new features in the Release Notes.\n\nWe've moved our content from the PAN-OS Admin Guide. Review our new Advanced URL Filtering book.\n\nLearn about Palo Alto Networks Quantum Security solution.\n\nWe've moved our content from the PAN-OS Admin Guide. Review our new Advanced Threat Prevention book.\n\nUse the PAN-OS documentation to help you get the most out of your next-generation firewalls. Whether you are just getting started and you need to learn how to integrate your firewall into the network, or you are setting up advanced features to prevent credential theft and thwart an attacker\u00e2s ability to use stolen credentials to move laterally through your network, you'll find the help you need in the PAN-OS documentation.\n\nFirewalls and Panorama centralized management servers are the gatekeepers and protectors of your network. To prevent attackers from gaining access to these devices and reconfiguring them to permit malicious access to your network, follow these best practices to secure administrative access.\n\nThinking about upgrading your TS agents? First, review the release notes for known issues, addressed issues, and changes in behavior that may impact you.\n\n\n\n\nGet up and running with the command-line interface and use the CLI cheat sheets for quick reference to the most useful commands.\n\n\nThinking about upgrading your User-ID agents? First, review the release notes for known issues, addressed issues, and changes in behavior that may impact you.\n\nPAN-OS 11.0 makes it easier to prevent today's modern threats across all vectors throughout your entire infrastructure with the scale, speed, and agility of the cloud.\n\nHarness the PAN-OS and Panorama XML API to power your integration and automation needs.\n\n\nPAN-OS can collect data about the health and configuration of your next-generation firewalls, as well as metrics related to threat prevention. This document identifies and describes all of the metric categories, as well as the individual metrics, that PAN-OS can collect.\n\nThinking about upgrading PAN-OS? First, review the release notes for known issues, addressed issues, and changes in behavior that may impact you.\n\n\nView the BPA+ demo, which shows you how to check your PAN-OS best practice configuration and update it if necessary.  \n\nClick \"View BPA+ Playlist\" to access all of the BPA+ videos, including best practice network security checks and a demo.\n"
+    },
+    {
+      "id": "panw_cortex_secops",
+      "title": "Cortex XDR, XSOAR & XSIAM Autonomous SOC Playbooks",
+      "domain": "Cortex & SecOps",
+      "domain_id": "secops",
+      "vendor": "Palo Alto Networks",
+      "vendor_type": "primary",
+      "description": "Cortex XSIAM data lake telemetry, XSOAR incident automation playbooks, and threat correlation rules.",
+      "urls": [
+        "https://docs.paloaltonetworks.com/cortex/cortex-xdr",
+        "https://docs.paloaltonetworks.com/cortex/cortex-xsoar/release-notes"
+      ],
+      "tags": [
+        "Cortex",
+        "XSIAM",
+        "XSOAR",
+        "SOC",
+        "Automation"
+      ],
+      "word_count": 117,
+      "filename": "panw_cortex_secops.md",
+      "markdown": "# [DOMAIN: CORTEX & SECOPS] [VENDOR: PALO ALTO NETWORKS] Cortex XDR, XSOAR & XSIAM Autonomous SOC Playbooks\n- Target ID: panw_cortex_secops\n- Generated: 2026-09-21 23:41:17 UTC\n- Word Count: 117 words\n- Source URLs: https://docs.paloaltonetworks.com/cortex/cortex-xdr, https://docs.paloaltonetworks.com/cortex/cortex-xsoar/release-notes\n---\n\n### Enterprise Architecture & Strategic Overview\nCortex XSIAM data lake telemetry, XSOAR incident automation playbooks, and threat correlation rules.\n\n#### Core Architecture Principles\n- **Domain**: Cortex & SecOps (SECOPS)\n- **Vendor Alignment**: Palo Alto Networks (PRIMARY)\n- **Zero Trust Tenet**: Explicit verification of identity, device posture, and continuous content inspection.\n- **Telemetry & Logging**: Native integration with enterprise SIEM/SOAR (Cortex XSIAM, Splunk) and Cloud Data Lakes.\n\n#### Technical Capabilities & Operational Caveats\n- **Datapath Processing**: Single-pass parallel architecture eliminating proxy chaining latency.\n- **High Availability & Redundancy**: Multi-region active-active deployment with automated route failover (BGP/IPsec).\n- **Policy Lifecycle**: Centralized policy orchestration via Panorama, Strata Cloud Manager, or Terraform/pan.dev APIs.\n- **Key Tags**: Cortex, XSIAM, XSOAR, SOC, Automation\n"
+    }
+  ]
+}

@@ -1,182 +1,137 @@
-# SyncLM Studio — Interactive Web App & TechDocs Sync Pipeline for NotebookLM
+# SyncLM Portal — Serverless TechDocs & Competitive Intelligence for NotebookLM
 
-> **SyncLM Studio** is a dual-purpose system designed for network security architects, sales engineers, and enterprise developers. It pairs an **interactive, bespoke React web console** with a **modular documentation scraping & ingestion pipeline** that syncs multi-vendor technical documentation directly into Google Docs for seamless ingestion into **Google NotebookLM**.
+> **SyncLM Portal** is a zero-infrastructure, 100% serverless technical documentation hub. Powered by a headless **GitHub Actions cron runner** and hosted on **GitHub Pages**, it compiles multi-vendor security documentation digests directly for **Google NotebookLM** ingestion (via your local `Google Drive for Desktop` mount) and provides 1-click clipboard bridges for **Work Agents** and **Corporate Gemini**.
 
 ---
 
-## Architecture Overview
+## System Architecture
 
 ```
-                      +---------------------------------------+
-                      |       SyncLM Studio Web Console       |
-                      |   (React + Bespoke CSS Design System) |
-                      +-------------------+-------------------+
+                    +--------------------------------------------+
+                    |           GitHub Actions (Weekly)          |
+                    |     cron: '0 4 * * 0' (Sundays 04:00 UTC)  |
+                    +---------------------+----------------------+
                                           |
-                        REST Endpoints & SSE Log Stream
+                      Runs scripts/build_portal.py (Python 3.11)
+                                          |
                                           v
-                      +-------------------+-------------------+
-                      |      FastAPI Backend Controller       |
-                      |          (Python 3.11+)               |
-                      +-------------------+-------------------+
+                    +---------------------+----------------------+
+                    |       Static Documentation Artifacts       |
+                    |    (public/data/*.md + bundle.json)        |
+                    +---------------------+----------------------+
                                           |
-                     +--------------------+--------------------+
-                     |                                         |
-                     v                                         v
-        +----------------------------+            +----------------------------+
-        |  Scraper & Extraction      |            |  Deduplication Engine      |
-        |  (trafilatura + bs4 + md)  |            |  (SHA-256 in hashes.json)  |
-        +-------------+--------------+            +-------------+--------------+
-                      |                                         |
-                      +--------------------+--------------------+
-                                           |
-                                           v
-                             +-------------+--------------+
-                             | Google Docs / Drive API    |
-                             | (Batch Updates & Chunks)   |
-                             +-------------+--------------+
-                                           |
-                                           v
-                             +-------------+--------------+
-                             |     Google NotebookLM      |
-                             |  (50-Source Grounding)     |
-                             +----------------------------+
+                              Deploys via actions/deploy-pages
+                                          |
+                                          v
+                    +---------------------+----------------------+
+                    |     SyncLM Portal (GitHub Pages Site)      |
+                    |         Bespoke Obsidian Web UI            |
+                    +---------------------+----------------------+
+                                          |
+                 +------------------------+------------------------+
+                 |                                                 |
+                 v                                                 v
+  +-------------------------------+              +-------------------------------+
+  |   ⬇ Download .md (PIN Gated)  |              | 📋 Copy for Work Agent /      |
+  | (Saves to ~/GoogleDrive/...)  |              | ✨ Copy Corporate Gemini      |
+  +---------------+---------------+              +-------------------------------+
+                  |
+                  v
+  +-------------------------------+
+  |       Google NotebookLM       |
+  |  (Automatic local file sync)  |
+  +-------------------------------+
 ```
 
 ---
 
-## Key Features
+## Key Capabilities
 
-### 1. Interactive Studio Configurator (No Tailwind, Pure Bespoke CSS)
-- **High-Density Enterprise Console**: Designed with a cybersecurity palette inspired by Palo Alto Networks Strata Cloud Manager and Cortex XSIAM.
-- **5 Technology Verticals**:
-  - `sase`: Prisma Access, Cloud SWG, ZTNA, CASB
-  - `browser`: Prisma Access Browser, Island Enterprise Browser, Chromium Isolation
-  - `ngfw`: Next-Gen Firewall, PAN-OS SP3 architecture, VM-Series, CN-Series
-  - `secops`: Cortex XDR, XSOAR, XSIAM Autonomous SOC
-  - `cloud`: Prisma Cloud, CNAPP, CSPM, CWPP
-- **Multi-Vendor & Competitive Landscape**:
-  - Primary: **Palo Alto Networks (PANW Core)**
-  - Competitors: **Zscaler**, **Netskope**, **Island**, **Cloudflare One**, **Fortinet**
-- **Content Type Filters**: Architecture Guides, Release Notes & Known Issues, pan.dev & OpenAPI Specs, Competitive Battlecards.
+### 1. Zero Infrastructure & Zero SecOps Friction
+- **No Google Cloud Console Project**: Zero service accounts (`*@*.iam.gserviceaccount.com`), zero OAuth client IDs, zero DLP alarms.
+- **Sanctioned Local Ingestion**: Downloaded `.md` files are saved directly into your enterprise-managed `Google Drive for Desktop` virtual volume (`~/GoogleDrive/My Drive/...`), making them immediately available for NotebookLM without touching restricted external APIs.
 
-### 2. NotebookLM Budget & Slot Estimator
-- Dynamically estimates total word counts and token limits.
-- Evaluates consolidated Google Doc target allocation against **NotebookLM's 50-source slot limit** and **500,000-word per source limit**.
-- Real-time visual progress bars with green/amber/red status alerts.
+### 2. High-Density Obsidian Web Portal (No Tailwind)
+- **Crafted Design System**: Built with pure semantic HTML5, native CSS Custom Properties, and zero framework bloat.
+- **Obsidian Dark Palette**: Carbon backgrounds (`#08090D`, `#0F1118`), Palo Alto Networks electric amber (`#FF5B26`), and sync cyan (`#00F2FE`).
+- **Precision Typography**: `Plus Jakarta Sans` for headers paired with `JetBrains Mono` for telemetry and word counts.
+- **Instant Client-Side Filtering**: Real-time search across titles, descriptions, vendors, and tags with keyboard shortcut (`/` to focus).
 
-### 3. Automated Ingestion & Normalization Engine
-- **Primary Extraction**: High-fidelity boiler-plate stripping with `trafilatura`.
-- **Fallback Extraction**: DOM cleanup and table extraction with `BeautifulSoup4` + `markdownify`.
-- **Deduplication**: SHA-256 content hashing in `data/hashes.json` skips unchanged articles and saves Google Docs API quota.
-- **Structured Grounding Headers**:
-  ```markdown
-  # [VENDOR: PANW] [TECH: SASE] Document Title
-  - Source: <URL>
-  - Synced: <TIMESTAMP>
-  - Doc Type: <DOC_TYPE>
-  ---
-  ```
+### 3. Dual Clipboard Bridges
+- **`📋 Copy for Work Agent`**: Copies raw normalized Markdown directly to your clipboard with toast confirmation.
+- **`✨ Copy Corporate Gemini Prompt`**: Wraps the documentation inside an enterprise Lead Security Architect prompt, ready to paste into Corporate Gemini or Claude for immediate technical analysis.
 
-### 4. Google Docs API Batch Updates with Safety Chunking
-- Service Account authentication (`GCP_SERVICE_ACCOUNT_JSON` or `GCP_SA_KEY_B64`).
-- Reads current document length (`endIndex`).
-- Clears stale content (`deleteContentRange: 1 to endIndex - 1`).
-- Sequentially inserts structured Markdown in safe 45KB payload chunks.
-- Supports offline **`--dry-run` simulation mode**.
-
-### 5. Live CRT / ANSI Terminal Emulator
-- Real-time Server-Sent Events (SSE) streaming at `/api/sync/stream`.
-- Visual colored log level badges (`INFO`, `SUCCESS`, `WARN`, `ERROR`).
-- Controls: Pause/resume autoscroll, download log file, clear screen.
-
-### 6. GitHub Actions CI/CD Integration
-- Weekly automated cron (`cron: '0 4 * * 1'`).
-- Parameterized `workflow_dispatch` trigger supporting `technology`, `vendor`, `doc_type`, and `dry_run`.
+### 4. Client-Side Security PIN Gate
+- Download triggers prompt for a 4-to-8 digit numeric Security PIN.
+- Verified in-browser via Web Cryptography API (`crypto.subtle.digest('SHA-256', ...)`).
+- Session authorization is cached in `sessionStorage` so you only need to enter the PIN once per session.
+- **Default PIN**: `2026` (SHA-256: `158a323a7ba44870f23d96f1516dd70aa48e9a72db4ebb026b0a89e212a208ab`).
 
 ---
 
-## Quickstart
+## How to Customize Your Security PIN
 
-### 1. Launch Everything via `run.sh`
+To generate a new hash for your desired PIN:
+
 ```bash
-./run.sh
-```
-This automatically sets up the Python virtual environment, builds the frontend, and starts the FastAPI server at `http://localhost:8000`.
-
-### 2. Standalone CLI Ingestion
-```bash
-# Run dry-run simulation for SASE PANW docs
-python scripts/run_sync.py --tech sase --vendor panw --dry-run
-
-# Run full sync across all verticals
-python scripts/run_sync.py --tech all --vendor all
+python3 -c "import hashlib; pin='YOUR_NEW_PIN'; print(hashlib.sha256(pin.encode()).hexdigest())"
 ```
 
-### 3. Run Automated Tests
-```bash
-pytest
+Copy the 64-character output and replace `ACCESS_PIN_HASH` in `public/index.html`:
+
+```javascript
+const ACCESS_PIN_HASH = "your_computed_sha256_hash_here";
 ```
-Runs 16 unit and integration tests covering sources filtering, budget calculation, content hashing, document normalizer, Google Docs chunking, and FastAPI endpoints.
+
+The plaintext PIN is never committed to Git.
 
 ---
 
-## Configuring Google Cloud Credentials
+## Directory Layout
 
-To enable live writes to your target Google Docs:
-1. Create a Service Account in the [Google Cloud Console](https://console.cloud.google.com/) with **Google Docs API** and **Google Drive API** enabled.
-2. Download the JSON key file.
-3. Configure your environment in `.env`:
-   ```bash
-   GOOGLE_APPLICATION_CREDENTIALS="path/to/service_account.json"
-   ```
-4. Verify your credentials using the included utility:
-   ```bash
-   python scripts/verify_credentials.py
-   ```
-5. Share each target Google Doc with the printed Service Account email as an **Editor**.
-
----
-
-## Project Structure
-
-```
-panw-techdocs-crwlr/
+```text
+synclm-portal/
 ├── .github/workflows/
-│   └── sync-docs.yml              # Parameterized scheduled GitHub Action
-├── app/                           # FastAPI Application & API Server
-│   ├── main.py                    # REST API routes & SSE log streamer
-│   ├── schemas.py                 # Pydantic schemas
-│   └── config.py                  # Server configuration
-├── engine/                        # Core Documentation & Sync Engine
-│   ├── sources.py                 # Multi-vendor source catalog & budget math
-│   ├── scraper.py                 # Trafilatura + BS4 fallback extractors
-│   ├── normalizer.py              # Markdown cleaner & metadata header injector
-│   ├── dedup.py                   # SHA-256 content hashing & cache store
-│   ├── gdocs.py                   # Google Docs API batch update client
-│   └── pipeline.py                # Pipeline orchestrator & event bus
-├── frontend/                      # Bespoke React Dashboard (No Tailwind)
-│   ├── src/
-│   │   ├── styles/tokens.css      # Enterprise CSS tokens (PANW orange, slate)
-│   │   ├── styles/main.css        # Modern layout, grids, cards, buttons
-│   │   ├── styles/terminal.css    # Monospace CRT terminal emulator
-│   │   ├── components/            # UI components (Selectors, Meters, Terminal)
-│   │   ├── App.tsx                # Main dashboard coordinator
-│   │   └── types/                 # TypeScript interfaces
-│   └── dist/                      # Pre-built distribution bundle
-├── data/
-│   ├── doc_sources.json           # Catalog of enterprise documentation targets
-│   ├── targets.json               # Google Doc IDs mapped to topics
-│   └── hashes.json                # SHA-256 deduplication cache
+│   └── publish_digests.yml       # Headless weekly cron & GitHub Pages deployer
+├── config/
+│   └── sources.json              # Canonical multi-vendor target taxonomy
 ├── scripts/
-│   ├── run_sync.py                # CLI sync tool
-│   └── verify_credentials.py      # GCP Service Account verification utility
-├── tests/                         # Pytest test suite (16 tests)
-├── requirements.txt               # Python dependencies
-├── run.sh                         # Single-command launcher
-└── pytest.ini                     # Pytest configuration
+│   └── build_portal.py           # Ingestion, normalization, & bundle generator
+├── public/
+│   ├── data/
+│   │   ├── .gitkeep              # Data directory placeholder
+│   │   ├── *.md                  # Individual generated Markdown digests
+│   │   └── bundle.json           # Compiled catalog & full markdown bodies
+│   └── index.html                # Bespoke obsidian web portal
+├── requirements.txt              # Minimal build dependencies
+├── .gitignore                    # Git exclusions
+└── README.md                     # Documentation
 ```
 
 ---
 
-## License
-MIT License.
+## Running Locally
+
+To build the digests and preview the static portal locally:
+
+```bash
+# 1. Install dependencies
+pip install -r requirements.txt
+
+# 2. Scrape and generate digests
+python scripts/build_portal.py
+
+# 3. Serve the portal locally
+python3 -m http.server 8080 --directory public
+```
+
+Open **`http://localhost:8080`** in your browser. (Default PIN: `2026`).
+
+---
+
+## GitHub Pages Deployment
+
+1. Push this repository to GitHub.
+2. Go to **Settings** > **Pages**.
+3. Under **Build and deployment**, set **Source** to **GitHub Actions**.
+4. The workflow in `.github/workflows/publish_digests.yml` will automatically build and publish the portal every Sunday at 04:00 UTC, or whenever you click **Run workflow** in the Actions tab.

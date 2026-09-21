@@ -1,0 +1,997 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SyncLM Portal — Enterprise TechDocs & Intelligence for NotebookLM</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    /* ==========================================================
+       SYNCLM PORTAL — BESPOKE OBSIDIAN DESIGN SYSTEM (NO TAILWIND)
+       Crafted Enterprise Cybersecurity Console Aesthetic
+       ========================================================== */
+    :root {
+      --bg-base: #08090D;
+      --bg-surface: #0F1118;
+      --bg-card: #151823;
+      --bg-card-hover: #1C2030;
+      --bg-elevated: #22273B;
+      --bg-input: #0A0D14;
+
+      --panw-amber: #FF5B26;
+      --panw-amber-hover: #FF7547;
+      --panw-amber-glow: rgba(255, 91, 38, 0.28);
+      --panw-amber-subtle: rgba(255, 91, 38, 0.10);
+
+      --sync-cyan: #00F2FE;
+      --sync-cyan-subtle: rgba(0, 242, 254, 0.12);
+
+      --status-emerald: #10B981;
+      --status-emerald-subtle: rgba(16, 185, 129, 0.12);
+
+      --comp-purple: #A855F7;
+      --comp-purple-subtle: rgba(168, 85, 247, 0.12);
+
+      --border-subtle: rgba(255, 255, 255, 0.08);
+      --border-hover: rgba(255, 255, 255, 0.16);
+      --border-active: #FF5B26;
+
+      --text-primary: #F8FAFC;
+      --text-secondary: #94A3B8;
+      --text-muted: #64748B;
+      --text-dim: #475569;
+
+      --font-sans: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+      --font-mono: 'JetBrains Mono', ui-monospace, monospace;
+
+      --radius-sm: 4px;
+      --radius-md: 8px;
+      --radius-lg: 12px;
+      --radius-pill: 9999px;
+      --transition: 150ms cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background-color: var(--bg-base);
+      color: var(--text-primary);
+      font-family: var(--font-sans);
+      -webkit-font-smoothing: antialiased;
+      line-height: 1.5;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      background-image: 
+        radial-gradient(ellipse 80% 50% at 50% -20%, rgba(255, 91, 38, 0.08), transparent 70%),
+        linear-gradient(to bottom, rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+        linear-gradient(to right, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+      background-size: 100% 100%, 48px 48px, 48px 48px;
+    }
+
+    /* Top Navigation Bar */
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 40;
+      background: rgba(15, 17, 24, 0.85);
+      backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--border-subtle);
+      padding: 14px 28px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .brand-mark {
+      width: 32px;
+      height: 32px;
+      border-radius: var(--radius-md);
+      background: linear-gradient(135deg, var(--panw-amber), #C53A10);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 0 16px var(--panw-amber-glow);
+    }
+
+    .brand-mark svg {
+      width: 18px;
+      height: 18px;
+      fill: #FFF;
+    }
+
+    .brand-text h1 {
+      font-size: 1.1rem;
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .brand-text h1 span.highlight {
+      color: var(--panw-amber);
+    }
+
+    .brand-text p {
+      font-size: 0.72rem;
+      color: var(--text-muted);
+      font-family: var(--font-mono);
+      letter-spacing: -0.01em;
+    }
+
+    .header-pills {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .telemetry-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background-color: var(--bg-card);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-pill);
+      padding: 4px 12px;
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      color: var(--text-secondary);
+    }
+
+    .telemetry-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background-color: var(--status-emerald);
+      box-shadow: 0 0 8px rgba(16, 185, 129, 0.8);
+    }
+
+    /* Main Container */
+    main {
+      flex: 1;
+      max-width: 1360px;
+      width: 100%;
+      margin: 0 auto;
+      padding: 32px 24px 64px;
+      display: flex;
+      flex-direction: column;
+      gap: 28px;
+    }
+
+    /* Hero / Directive Banner */
+    .hero-banner {
+      background: linear-gradient(180deg, var(--bg-surface) 0%, rgba(15, 17, 24, 0.5) 100%);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-lg);
+      padding: 24px 28px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-banner::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 4px;
+      height: 100%;
+      background: var(--panw-amber);
+    }
+
+    .hero-info h2 {
+      font-size: 1.25rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      margin-bottom: 6px;
+    }
+
+    .hero-info p {
+      font-size: 0.85rem;
+      color: var(--text-secondary);
+      max-width: 780px;
+    }
+
+    .hero-quickstats {
+      display: flex;
+      gap: 16px;
+      flex-shrink: 0;
+    }
+
+    .quickstat-box {
+      background: var(--bg-card);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-md);
+      padding: 10px 16px;
+      text-align: right;
+      min-width: 110px;
+    }
+
+    .quickstat-box .num {
+      font-family: var(--font-mono);
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: var(--text-primary);
+    }
+
+    .quickstat-box .lbl {
+      font-size: 0.68rem;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    /* Filter & Search Bar */
+    .filter-bar {
+      display: flex;
+      gap: 12px;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    .search-input-wrap {
+      flex: 1;
+      min-width: 280px;
+      position: relative;
+    }
+
+    .search-icon {
+      position: absolute;
+      left: 14px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: var(--text-muted);
+      pointer-events: none;
+    }
+
+    .search-input {
+      width: 100%;
+      background: var(--bg-input);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-md);
+      padding: 10px 16px 10px 42px;
+      color: var(--text-primary);
+      font-family: var(--font-sans);
+      font-size: 0.85rem;
+      outline: none;
+      transition: all var(--transition);
+    }
+
+    .search-input:focus {
+      border-color: var(--panw-amber);
+      box-shadow: 0 0 0 3px var(--panw-amber-subtle);
+    }
+
+    .kbd-shortcut {
+      position: absolute;
+      right: 12px;
+      top: 50%;
+      transform: translateY(-50%);
+      font-family: var(--font-mono);
+      font-size: 0.7rem;
+      background: var(--bg-card);
+      border: 1px solid var(--border-subtle);
+      color: var(--text-muted);
+      padding: 2px 6px;
+      border-radius: 3px;
+      pointer-events: none;
+    }
+
+    .domain-select {
+      background: var(--bg-input);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-md);
+      padding: 10px 16px;
+      color: var(--text-primary);
+      font-family: var(--font-sans);
+      font-size: 0.85rem;
+      outline: none;
+      cursor: pointer;
+      min-width: 200px;
+      transition: border-color var(--transition);
+    }
+
+    .domain-select:focus {
+      border-color: var(--panw-amber);
+    }
+
+    /* Cards Grid */
+    .catalog-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(420px, 1fr));
+      gap: 18px;
+    }
+
+    @media (max-width: 768px) {
+      .catalog-grid {
+        grid-template-columns: 1fr;
+      }
+      .hero-banner {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      .hero-quickstats {
+        align-self: stretch;
+      }
+      .quickstat-box {
+        flex: 1;
+        text-align: left;
+      }
+    }
+
+    .card {
+      background: var(--bg-surface);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-lg);
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      transition: all var(--transition);
+      position: relative;
+    }
+
+    .card:hover {
+      background: var(--bg-card);
+      border-color: var(--border-hover);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+    }
+
+    .card-meta-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+    }
+
+    .chip-group {
+      display: flex;
+      gap: 6px;
+      flex-wrap: wrap;
+    }
+
+    .chip {
+      font-family: var(--font-mono);
+      font-size: 0.68rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      padding: 3px 8px;
+      border-radius: var(--radius-sm);
+    }
+
+    .chip.domain {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid var(--border-subtle);
+      color: var(--text-secondary);
+    }
+
+    .chip.vendor-primary {
+      background: var(--panw-amber-subtle);
+      border: 1px solid rgba(255, 91, 38, 0.3);
+      color: var(--panw-amber);
+    }
+
+    .chip.vendor-competitor {
+      background: var(--comp-purple-subtle);
+      border: 1px solid rgba(168, 85, 247, 0.3);
+      color: #C084FC;
+    }
+
+    .telemetry-words {
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      color: var(--text-muted);
+    }
+
+    .card-title {
+      font-size: 1.05rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      color: var(--text-primary);
+      line-height: 1.35;
+    }
+
+    .card-desc {
+      font-size: 0.82rem;
+      color: var(--text-secondary);
+      line-height: 1.45;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+
+    .card-tags {
+      display: flex;
+      gap: 6px;
+      flex-wrap: wrap;
+    }
+
+    .tag-pill {
+      font-size: 0.7rem;
+      color: var(--text-muted);
+      background: rgba(255, 255, 255, 0.03);
+      padding: 2px 7px;
+      border-radius: 3px;
+      font-family: var(--font-mono);
+    }
+
+    /* Action Triggers */
+    .card-actions {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 8px;
+      padding-top: 6px;
+      border-top: 1px solid var(--border-subtle);
+      margin-top: auto;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      font-family: var(--font-sans);
+      font-size: 0.78rem;
+      font-weight: 600;
+      padding: 8px 12px;
+      border-radius: var(--radius-md);
+      cursor: pointer;
+      transition: all var(--transition);
+      text-decoration: none;
+      border: 1px solid transparent;
+      user-select: none;
+    }
+
+    .btn-download {
+      grid-column: 1 / -1;
+      background: var(--panw-amber);
+      color: #FFFFFF;
+      box-shadow: 0 2px 10px var(--panw-amber-glow);
+    }
+    .btn-download:hover {
+      background: var(--panw-amber-hover);
+      box-shadow: 0 4px 14px var(--panw-amber-glow);
+    }
+
+    .btn-agent {
+      background: var(--bg-card);
+      border-color: var(--border-subtle);
+      color: var(--text-secondary);
+    }
+    .btn-agent:hover {
+      background: var(--bg-elevated);
+      color: var(--text-primary);
+      border-color: var(--border-hover);
+    }
+
+    .btn-gemini {
+      background: rgba(0, 242, 254, 0.06);
+      border-color: rgba(0, 242, 254, 0.25);
+      color: #38BDF8;
+    }
+    .btn-gemini:hover {
+      background: rgba(0, 242, 254, 0.14);
+      border-color: var(--sync-cyan);
+      color: #FFF;
+    }
+
+    /* PIN Verification Modal */
+    .modal-backdrop {
+      position: fixed;
+      inset: 0;
+      background: rgba(4, 5, 8, 0.85);
+      backdrop-filter: blur(12px);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 100;
+      padding: 20px;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 200ms ease;
+    }
+
+    .modal-backdrop.open {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .pin-modal {
+      background: var(--bg-surface);
+      border: 1px solid var(--border-hover);
+      border-radius: var(--radius-lg);
+      width: 100%;
+      max-width: 440px;
+      padding: 28px;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      box-shadow: 0 24px 48px rgba(0, 0, 0, 0.8), 0 0 40px var(--panw-amber-glow);
+      transform: scale(0.96);
+      transition: transform 200ms ease;
+    }
+
+    .modal-backdrop.open .pin-modal {
+      transform: scale(1);
+    }
+
+    .pin-modal-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .pin-modal-header h3 {
+      font-size: 1.1rem;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .close-btn {
+      background: transparent;
+      border: none;
+      color: var(--text-muted);
+      cursor: pointer;
+      padding: 4px;
+    }
+    .close-btn:hover {
+      color: var(--text-primary);
+    }
+
+    .pin-modal-body p {
+      font-size: 0.82rem;
+      color: var(--text-secondary);
+      margin-bottom: 16px;
+    }
+
+    .pin-input {
+      width: 100%;
+      background: var(--bg-input);
+      border: 1px solid var(--border-hover);
+      border-radius: var(--radius-md);
+      padding: 12px 16px;
+      color: var(--panw-amber);
+      font-family: var(--font-mono);
+      font-size: 1.4rem;
+      letter-spacing: 0.35em;
+      text-align: center;
+      outline: none;
+      transition: border-color var(--transition);
+    }
+
+    .pin-input:focus {
+      border-color: var(--panw-amber);
+      box-shadow: 0 0 0 3px var(--panw-amber-subtle);
+    }
+
+    .pin-modal-footer {
+      display: flex;
+      gap: 10px;
+      justify-content: flex-end;
+    }
+
+    .pin-error {
+      color: #F87171;
+      font-size: 0.78rem;
+      font-family: var(--font-mono);
+      text-align: center;
+      min-height: 18px;
+    }
+
+    /* Toast Notification */
+    .toast {
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      background: var(--bg-card);
+      border: 1px solid var(--panw-amber);
+      border-radius: var(--radius-md);
+      padding: 12px 20px;
+      color: var(--text-primary);
+      font-size: 0.82rem;
+      font-weight: 600;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.7), 0 0 20px var(--panw-amber-glow);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      z-index: 999;
+      transform: translateY(100px);
+      opacity: 0;
+      transition: all 250ms cubic-bezier(0.16, 1, 0.3, 1);
+      pointer-events: none;
+    }
+
+    .toast.visible {
+      transform: translateY(0);
+      opacity: 1;
+    }
+
+    /* Empty State */
+    .empty-state {
+      grid-column: 1 / -1;
+      text-align: center;
+      padding: 64px 20px;
+      color: var(--text-muted);
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="brand">
+      <div class="brand-mark">
+        <svg viewBox="0 0 24 24">
+          <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
+        </svg>
+      </div>
+      <div class="brand-text">
+        <h1>SyncLM <span class="highlight">Portal</span></h1>
+        <p>Enterprise TechDocs & Competitive Intelligence for NotebookLM</p>
+      </div>
+    </div>
+
+    <div class="header-pills">
+      <div class="telemetry-badge">
+        <span class="telemetry-dot"></span>
+        <span id="headerTotalWords">... words</span>
+      </div>
+      <div class="telemetry-badge">
+        <span>Zero-Infra Serverless</span>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <div class="hero-banner">
+      <div class="hero-info">
+        <h2>Enterprise Technical Ingestion & Grounding Hub</h2>
+        <p>
+          Authoritative technical markdown digests compiled directly for Google NotebookLM local ingestion (drag-and-drop into your mounted Google Drive directory) and instant LLM context clipboard bridges.
+        </p>
+      </div>
+      <div class="hero-quickstats">
+        <div class="quickstat-box">
+          <div class="num" id="statTargets">6</div>
+          <div class="lbl">Targets</div>
+        </div>
+        <div class="quickstat-box">
+          <div class="num" id="statWords">2,225</div>
+          <div class="lbl">Words Cached</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Filter & Search Controls -->
+    <div class="filter-bar">
+      <div class="search-input-wrap">
+        <svg class="search-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <circle cx="11" cy="11" r="8"></circle>
+          <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+        </svg>
+        <input 
+          type="text" 
+          id="searchInput" 
+          class="search-input" 
+          placeholder="Filter by keyword, feature, or vendor (e.g., SP3, Prisma, ZIA, DLP)..."
+          autocomplete="off"
+        >
+        <span class="kbd-shortcut">/</span>
+      </div>
+
+      <select id="domainFilter" class="domain-select">
+        <option value="all">All Technology Domains</option>
+        <option value="sase">SASE & SSE</option>
+        <option value="browser">Enterprise Browser</option>
+        <option value="ngfw">NGFW & PAN-OS</option>
+        <option value="secops">Cortex & SecOps</option>
+      </select>
+    </div>
+
+    <!-- Target Cards Grid -->
+    <div id="catalogGrid" class="catalog-grid">
+      <!-- Injected via JavaScript -->
+    </div>
+  </main>
+
+  <!-- PIN Modal -->
+  <div id="pinModal" class="modal-backdrop">
+    <div class="pin-modal">
+      <div class="pin-modal-header">
+        <h3>
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#FF5B26" stroke-width="2">
+            <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+            <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+          </svg>
+          Security Gatekeeper
+        </h3>
+        <button id="closeModalBtn" class="close-btn">&times;</button>
+      </div>
+      <div class="pin-modal-body">
+        <p>Enter your 4-to-8 digit Security PIN to authorize client-side download of technical documentation digests:</p>
+        <input 
+          type="password" 
+          id="pinInput" 
+          class="pin-input" 
+          maxlength="8" 
+          inputmode="numeric" 
+          placeholder="••••"
+          autofocus
+        >
+        <div id="pinError" class="pin-error"></div>
+      </div>
+      <div class="pin-modal-footer">
+        <button id="cancelModalBtn" class="btn btn-agent">Cancel</button>
+        <button id="submitPinBtn" class="btn btn-download">Authorize & Download</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Micro Toast -->
+  <div id="toast" class="toast">
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#10B981" stroke-width="2.5">
+      <polyline points="20 6 9 17 4 12"></polyline>
+    </svg>
+    <span id="toastMessage">Copied to clipboard!</span>
+  </div>
+
+  <script>
+    // ==========================================================
+    // SYNCLM PORTAL CLIENT ENGINE
+    // ==========================================================
+
+    // Embedded SHA-256 Digest of the Authorized PIN (default hash for '2026')
+    // Computed via hashlib.sha256(b"2026").hexdigest()
+    const ACCESS_PIN_HASH = "158a323a7ba44870f23d96f1516dd70aa48e9a72db4ebb026b0a89e212a208ab";
+
+    let catalogTargets = [];
+    let pendingDownloadTarget = null;
+
+    // Helper: SHA-256 in browser via Web Cryptography API
+    async function sha256(str) {
+      const buf = new TextEncoder().encode(str);
+      const hashBuf = await crypto.subtle.digest('SHA-256', buf);
+      const hashArray = Array.from(new Uint8Array(hashBuf));
+      return hashArray.map(b => b.toString(16).padStart(2, '0')).join('');
+    }
+
+    function showToast(msg) {
+      const toast = document.getElementById('toast');
+      const text = document.getElementById('toastMessage');
+      text.textContent = msg;
+      toast.classList.add('visible');
+      setTimeout(() => toast.classList.remove('visible'), 2400);
+    }
+
+    function isPinAuthorized() {
+      return sessionStorage.getItem('synclm_authorized') === 'true';
+    }
+
+    function executeDownload(target) {
+      const blob = new Blob([target.markdown], { type: 'text/markdown;charset=utf-8' });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = target.filename || `${target.id}.md`;
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+      URL.revokeObjectURL(url);
+      showToast(`Downloaded ${target.filename} — Save to GoogleDrive mount!`);
+    }
+
+    function triggerDownloadFlow(target) {
+      if (isPinAuthorized()) {
+        executeDownload(target);
+        return;
+      }
+      pendingDownloadTarget = target;
+      const modal = document.getElementById('pinModal');
+      const pinInput = document.getElementById('pinInput');
+      const pinError = document.getElementById('pinError');
+      pinError.textContent = '';
+      pinInput.value = '';
+      modal.classList.add('open');
+      pinInput.focus();
+    }
+
+    async function handlePinSubmit() {
+      const pinInput = document.getElementById('pinInput');
+      const pinError = document.getElementById('pinError');
+      const enteredPin = pinInput.value.trim();
+
+      if (!enteredPin) {
+        pinError.textContent = 'Please enter a PIN.';
+        return;
+      }
+
+      const hash = await sha256(enteredPin);
+      if (hash === ACCESS_PIN_HASH) {
+        sessionStorage.setItem('synclm_authorized', 'true');
+        document.getElementById('pinModal').classList.remove('open');
+        if (pendingDownloadTarget) {
+          executeDownload(pendingDownloadTarget);
+          pendingDownloadTarget = null;
+        }
+      } else {
+        pinError.textContent = 'Invalid PIN. Access denied.';
+        pinInput.value = '';
+        pinInput.focus();
+      }
+    }
+
+    function copyForWorkAgent(target) {
+      navigator.clipboard.writeText(target.markdown).then(() => {
+        showToast(`Copied ${target.id}.md raw Markdown for Work Agent!`);
+      });
+    }
+
+    function copyCorporateGeminiPrompt(target) {
+      const promptWrapper = 
+`You are an elite Principal Cybersecurity Architect and technical advisor specializing in Enterprise Zero Trust, SASE, and Next-Generation Security infrastructure.
+
+Analyze the following technical documentation digest regarding "${target.title}" (${target.vendor} - ${target.domain}).
+
+TASK:
+1. Provide an executive architectural breakdown of this technology, explaining how its dataplane and control plane function.
+2. Identify critical deployment caveats, known caveats/limitations, or operational friction points.
+3. Outline key competitive differentiators or architectural comparisons versus alternatives in this domain.
+
+---
+${target.markdown}`;
+
+      navigator.clipboard.writeText(promptWrapper).then(() => {
+        showToast(`Copied Corporate Gemini Prompt with architecture context!`);
+      });
+    }
+
+    // Render Cards
+    function renderCatalog() {
+      const query = document.getElementById('searchInput').value.toLowerCase().trim();
+      const domain = document.getElementById('domainFilter').value;
+      const grid = document.getElementById('catalogGrid');
+
+      const filtered = catalogTargets.filter(t => {
+        const matchesDomain = domain === 'all' || t.domain_id === domain;
+        const matchesQuery = !query || 
+          t.title.toLowerCase().includes(query) ||
+          t.description.toLowerCase().includes(query) ||
+          t.vendor.toLowerCase().includes(query) ||
+          (t.tags && t.tags.some(tag => tag.toLowerCase().includes(query)));
+        return matchesDomain && matchesQuery;
+      });
+
+      if (filtered.length === 0) {
+        grid.innerHTML = `
+          <div class="empty-state">
+            <h3>No documentation targets matched your query.</h3>
+            <p>Try clearing your search filter or selecting 'All Technology Domains'.</p>
+          </div>
+        `;
+        return;
+      }
+
+      grid.innerHTML = filtered.map(t => `
+        <div class="card">
+          <div class="card-meta-row">
+            <div class="chip-group">
+              <span class="chip domain">${t.domain}</span>
+              <span class="chip ${t.vendor_type === 'primary' ? 'vendor-primary' : 'vendor-competitor'}">
+                ${t.vendor}
+              </span>
+            </div>
+            <span class="telemetry-words">${(t.word_count || 0).toLocaleString()} words</span>
+          </div>
+
+          <h3 class="card-title">${t.title}</h3>
+          <p class="card-desc">${t.description}</p>
+
+          <div class="card-tags">
+            ${(t.tags || []).map(tag => `<span class="tag-pill">#${tag}</span>`).join('')}
+          </div>
+
+          <div class="card-actions">
+            <button class="btn btn-download" onclick="window.appTriggerDownload('${t.id}')">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                <polyline points="7 10 12 15 17 10"></polyline>
+                <line x1="12" y1="15" x2="12" y2="3"></line>
+              </svg>
+              Download .md (PIN Gated)
+            </button>
+            <button class="btn btn-agent" onclick="window.appCopyAgent('${t.id}')">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+              </svg>
+              Copy for Work Agent
+            </button>
+            <button class="btn btn-gemini" onclick="window.appCopyGemini('${t.id}')">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"></path>
+              </svg>
+              Corporate Gemini Prompt
+            </button>
+          </div>
+        </div>
+      `).join('');
+    }
+
+    // Expose action handlers to global window for inline onclicks
+    window.appTriggerDownload = (id) => {
+      const target = catalogTargets.find(t => t.id === id);
+      if (target) triggerDownloadFlow(target);
+    };
+
+    window.appCopyAgent = (id) => {
+      const target = catalogTargets.find(t => t.id === id);
+      if (target) copyForWorkAgent(target);
+    };
+
+    window.appCopyGemini = (id) => {
+      const target = catalogTargets.find(t => t.id === id);
+      if (target) copyCorporateGeminiPrompt(target);
+    };
+
+    // Keyboard shortcut '/' to search
+    window.addEventListener('keydown', (e) => {
+      if (e.key === '/' && document.activeElement !== document.getElementById('searchInput')) {
+        e.preventDefault();
+        document.getElementById('searchInput').focus();
+      }
+    });
+
+    // Modal listeners
+    document.getElementById('closeModalBtn').addEventListener('click', () => {
+      document.getElementById('pinModal').classList.remove('open');
+    });
+    document.getElementById('cancelModalBtn').addEventListener('click', () => {
+      document.getElementById('pinModal').classList.remove('open');
+    });
+    document.getElementById('submitPinBtn').addEventListener('click', handlePinSubmit);
+    document.getElementById('pinInput').addEventListener('keydown', (e) => {
+      if (e.key === 'Enter') handlePinSubmit();
+    });
+
+    // Input listeners
+    document.getElementById('searchInput').addEventListener('input', renderCatalog);
+    document.getElementById('domainFilter').addEventListener('change', renderCatalog);
+
+    // Initial load: fetch bundle.json
+    fetch('data/bundle.json')
+      .then(r => r.json())
+      .then(data => {
+        catalogTargets = data.targets || [];
+        document.getElementById('statTargets').textContent = catalogTargets.length;
+        document.getElementById('statWords').textContent = (data.total_words || 0).toLocaleString();
+        document.getElementById('headerTotalWords').textContent = `${(data.total_words || 0).toLocaleString()} words cached`;
+        renderCatalog();
+      })
+      .catch(err => {
+        console.error('Failed to load bundle.json:', err);
+        // Graceful fallback display
+        grid.innerHTML = '<div class="empty-state"><h3>Loading documentation bundle...</h3></div>';
+      });
+  </script>
+</body>
+</html>
