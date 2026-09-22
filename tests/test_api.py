@@ -52,4 +52,4 @@ def test_api_budget():
 def test_spa_root():
     res = client.get("/")
     assert res.status_code == 200
-    assert "<title>SyncLM Studio" in res.text
+    assert "<title>SyncLM" in res.text

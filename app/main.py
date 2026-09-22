@@ -299,13 +299,16 @@ async def get_hashes_stats():
     return hash_store.get_stats()
 
 
-# Mount pre-built React frontend if present
-if FRONTEND_DIST.exists():
-    app.mount("/assets", StaticFiles(directory=FRONTEND_DIST / "assets"), name="assets")
+from app.config import PUBLIC_DIR
+
+# Mount public directory for static assets and single-page dashboard
+if PUBLIC_DIR.exists():
+    if (PUBLIC_DIR / "data").exists():
+        app.mount("/data", StaticFiles(directory=PUBLIC_DIR / "data"), name="public_data")
 
     @app.get("/{full_path:path}")
-    async def serve_spa(full_path: str):
-        file_path = FRONTEND_DIST / full_path
-        if file_path.is_file():
+    async def serve_portal(full_path: str):
+        file_path = PUBLIC_DIR / full_path
+        if full_path and file_path.is_file():
             return FileResponse(file_path)
-        return FileResponse(FRONTEND_DIST / "index.html")
+        return FileResponse(PUBLIC_DIR / "index.html")
