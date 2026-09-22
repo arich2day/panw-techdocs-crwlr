@@ -3,14 +3,14 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>SyncLM Portal — Cloudflare & Railway Enterprise Console</title>
+  <title>SyncLM Portal — Enterprise TechDocs & NotebookLM Engine</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
   <style>
     /* ==========================================================
-       SYNCLM PORTAL — CLOUDFLARE DASHBOARD x RAILWAY AESTHETIC
-       Clean, Sharp, High-Density Enterprise Architecture
+       SYNCLM PORTAL — ENTERPRISE TECHDOCS CONSOLE
+       Clean, Sharp, High-Density Architecture
        Zero Tailwind • Zero Vibe-Coded Slop
        ========================================================== */
     :root {
@@ -25,7 +25,7 @@
       --cf-border-light: #2A334A;
       --cf-border-active: #F38020;
 
-      /* Cloudflare & Railway Palette */
+      /* Enterprise Palette */
       --cf-orange: #F38020;
       --cf-orange-hover: #FA8C2D;
       --cf-orange-subtle: rgba(243, 128, 32, 0.12);
@@ -69,7 +69,7 @@
       height: 100vh;
       display: flex;
       overflow: hidden;
-      /* Subtle Railway blueprint grid */
+      /* Subtle blueprint grid */
       background-image: 
         linear-gradient(to bottom, rgba(255, 255, 255, 0.015) 1px, transparent 1px),
         linear-gradient(to right, rgba(255, 255, 255, 0.015) 1px, transparent 1px);
@@ -77,7 +77,7 @@
     }
 
     /* ==========================================================
-       SIDE PANEL (Cloudflare / Railway Navigation)
+       SIDE PANEL (Enterprise Navigation)
        ========================================================== */
     aside.sidebar {
       width: 250px;
@@ -403,7 +403,7 @@
       line-height: 1.35;
     }
 
-    /* Metrics Grid (Railway Style) */
+    /* Metrics Grid */
     .metrics-row {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
@@ -550,7 +550,7 @@
       color: var(--text-muted);
     }
 
-    /* Railway Styled Live Console */
+    /* Live Telemetry Console */
     .console-container {
       background-color: #06080D;
       border-top: 1px solid var(--cf-border);
@@ -876,7 +876,7 @@
         </div>
       </div>
 
-      <!-- TAB 3: Railway Live Console -->
+      <!-- TAB 3: Live Telemetry Console -->
       <div id="tab-console" class="section-panel" style="display: none;">
         <div class="panel-top">
           <div class="panel-heading">
@@ -884,7 +884,7 @@
               <polyline points="4 17 10 11 4 5"></polyline>
               <line x1="12" y1="19" x2="20" y2="19"></line>
             </svg>
-            Railway-Style Live Deployment & Telemetry Console
+            Live Deployment & Telemetry Console
           </div>
           <div style="display: flex; gap: 8px;">
             <button class="btn btn-subtle" onclick="clearConsole()">Clear</button>
@@ -919,7 +919,7 @@
 
   <script>
     // ==========================================================
-    // CLOUDFLARE x RAILWAY ENGINE
+    // SYNCLM APPLICATION ENGINE
     // ==========================================================
     let targetsData = [
       { id: "target-sase", name: "Prisma SASE Core Architecture", domain: "SASE & SSE", doc_id: "1A2B3C4D5E6F_SASE_DOC", status: "Ready to Sync" },
