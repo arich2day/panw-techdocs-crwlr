@@ -1,9 +1,51 @@
 {
+  "cloudflare-sase-one-arch": {
+    "char_count": 6936,
+    "sha256": "b1429ffc978f4e955826da93a6ab84dde7b6e1c540d75e82526d517ea33a92e2",
+    "updated_at": "2026-09-28T10:19:10.683753+00:00",
+    "url": "https://developers.cloudflare.com/cloudflare-one/",
+    "word_count": 655
+  },
+  "island-browser-enterprise-arch": {
+    "char_count": 8828,
+    "sha256": "27065ef938db9c9960c7c07ecc285363342ac17bdfa57053e3e6d74b84cf63c6",
+    "updated_at": "2026-09-28T10:19:10.547514+00:00",
+    "url": "https://www.island.io/product",
+    "word_count": 1234
+  },
+  "panw-browser-prisma-access-browser": {
+    "char_count": 1461,
+    "sha256": "5ca748a898a0128251e8ee19eb85881b9ec5182470bf88a8672bc78201a0743c",
+    "updated_at": "2026-09-28T10:19:08.799913+00:00",
+    "url": "https://docs.paloaltonetworks.com/prisma-access-browser",
+    "word_count": 219
+  },
+  "panw-ngfw-pan-os-arch": {
+    "char_count": 2951,
+    "sha256": "05a0da7c3325d749c9a909ecd272bf1be45a705475ab863a63c5381b2530734c",
+    "updated_at": "2026-09-28T10:19:09.365148+00:00",
+    "url": "https://docs.paloaltonetworks.com/pan-os",
+    "word_count": 455
+  },
   "panw-sase-prisma-access-arch": {
     "char_count": 7496,
     "sha256": "e737c1377fb16f8816b10b6208b893b72fa203ef9c153c038f895ce33bea008e",
     "updated_at": "2026-09-21T23:32:02.049185+00:00",
     "url": "https://docs.paloaltonetworks.com/prisma/prisma-access/prisma-access-panorama-admin/prisma-access-overview/prisma-access-infrastructure",
     "word_count": 991
+  },
+  "panw-secops-cortex-rn": {
+    "char_count": 1549,
+    "sha256": "3d80ed3762f84f38e644d66a06559678850972fb6aed059f7491db885065ce3d",
+    "updated_at": "2026-09-28T10:19:10.101442+00:00",
+    "url": "https://docs.paloaltonetworks.com/cortex/cortex-xsoar/release-notes",
+    "word_count": 208
+  },
+  "panw-secops-cortex-xdr-arch": {
+    "char_count": 1549,
+    "sha256": "3d80ed3762f84f38e644d66a06559678850972fb6aed059f7491db885065ce3d",
+    "updated_at": "2026-09-28T10:19:10.211355+00:00",
+    "url": "https://docs.paloaltonetworks.com/cortex/cortex-xdr",
+    "word_count": 208
   }
 }
