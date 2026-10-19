@@ -1,24 +1,24 @@
 {
   "cloudflare-sase-one-arch": {
     "char_count": 7099,
-    "sha256": "923114064ce15757e9f7f37cff4a3504e1e64b046b6536b98ad29add181e8fea",
-    "updated_at": "2026-10-05T10:59:43.600773+00:00",
+    "sha256": "b6b8af13722fb0d196cdb5ce6de3e6ef57ceb53c8358672f96131256b08a8259",
+    "updated_at": "2026-10-19T09:26:30.829022+00:00",
     "url": "https://developers.cloudflare.com/cloudflare-one/",
     "word_count": 655
   },
   "fortinet-ngfw-fortigate-arch": {
     "char_count": 6848,
-    "sha256": "44864013d04db786d765e213339062c23e6393da6ca432acfe0c407a6f6d69ba",
-    "updated_at": "2026-10-12T11:28:24.333894+00:00",
+    "sha256": "832840fbc63d542f692fe45aa98113b3ed327cfede1ffe42896bf357693c36a9",
+    "updated_at": "2026-10-19T09:26:31.709582+00:00",
     "url": "https://docs.fortinet.com/product/fortigate/",
     "word_count": 456
   },
   "island-browser-enterprise-arch": {
-    "char_count": 8828,
-    "sha256": "27065ef938db9c9960c7c07ecc285363342ac17bdfa57053e3e6d74b84cf63c6",
-    "updated_at": "2026-09-28T10:19:10.547514+00:00",
+    "char_count": 9097,
+    "sha256": "62856a101e644cfd4f9cfe5a4a6ebfe19022729f81df8e01f0b1f759b3c2c574",
+    "updated_at": "2026-10-19T09:26:30.541654+00:00",
     "url": "https://www.island.io/product",
-    "word_count": 1234
+    "word_count": 1280
   },
   "panw-browser-prisma-access-browser": {
     "char_count": 1457,
@@ -29,8 +29,8 @@
   },
   "panw-ngfw-pan-os-arch": {
     "char_count": 2945,
-    "sha256": "f2eb271c3ff59239b0f778eaacd7e0293609997a4e13dc06efcf3c7f516f754f",
-    "updated_at": "2026-10-12T11:28:22.889496+00:00",
+    "sha256": "ad76a6c16482e478d89bb4c430ff315a7b7e7687ced747f36931a38210096b04",
+    "updated_at": "2026-10-19T09:26:29.531523+00:00",
     "url": "https://docs.paloaltonetworks.com/pan-os",
     "word_count": 455
   },
