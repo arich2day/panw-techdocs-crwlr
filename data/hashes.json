@@ -7,11 +7,11 @@
     "word_count": 655
   },
   "fortinet-ngfw-fortigate-arch": {
-    "char_count": 6848,
-    "sha256": "832840fbc63d542f692fe45aa98113b3ed327cfede1ffe42896bf357693c36a9",
-    "updated_at": "2026-10-19T09:26:31.709582+00:00",
+    "char_count": 7428,
+    "sha256": "fcd0d893a7788b19742dde51f1b0bbd4cc7330ce166ae2a3d60bcc8b2c53e641",
+    "updated_at": "2026-10-26T09:30:30.645842+00:00",
     "url": "https://docs.fortinet.com/product/fortigate/",
-    "word_count": 456
+    "word_count": 474
   },
   "island-browser-enterprise-arch": {
     "char_count": 9097,
@@ -29,8 +29,8 @@
   },
   "panw-ngfw-pan-os-arch": {
     "char_count": 2945,
-    "sha256": "ad76a6c16482e478d89bb4c430ff315a7b7e7687ced747f36931a38210096b04",
-    "updated_at": "2026-10-19T09:26:29.531523+00:00",
+    "sha256": "f2eb271c3ff59239b0f778eaacd7e0293609997a4e13dc06efcf3c7f516f754f",
+    "updated_at": "2026-10-26T09:30:27.100812+00:00",
     "url": "https://docs.paloaltonetworks.com/pan-os",
     "word_count": 455
   },
