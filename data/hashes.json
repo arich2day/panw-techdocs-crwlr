@@ -8,8 +8,8 @@
   },
   "fortinet-ngfw-fortigate-arch": {
     "char_count": 7428,
-    "sha256": "ccc84e5f768f3cdf37eed5544db9f327be9f77cdd85732a1a9b52b2cb7ab4bc7",
-    "updated_at": "2026-11-02T11:51:28.645294+00:00",
+    "sha256": "4d15dcc8fd0b010dfdb09f4a6d7c074502e616d7be131bc7e2ddbf1578541f18",
+    "updated_at": "2026-11-09T12:21:08.698842+00:00",
     "url": "https://docs.fortinet.com/product/fortigate/",
     "word_count": 474
   },
