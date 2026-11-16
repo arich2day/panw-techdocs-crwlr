@@ -1,15 +1,15 @@
 {
   "cloudflare-sase-one-arch": {
-    "char_count": 7099,
-    "sha256": "b6b8af13722fb0d196cdb5ce6de3e6ef57ceb53c8358672f96131256b08a8259",
-    "updated_at": "2026-10-19T09:26:30.829022+00:00",
+    "char_count": 6894,
+    "sha256": "a45237656b07d9a4b2739e33c254cdbf6d7ace26c6710d31db7c34845c341a87",
+    "updated_at": "2026-11-16T12:17:30.948452+00:00",
     "url": "https://developers.cloudflare.com/cloudflare-one/",
-    "word_count": 655
+    "word_count": 636
   },
   "fortinet-ngfw-fortigate-arch": {
     "char_count": 7428,
-    "sha256": "4d15dcc8fd0b010dfdb09f4a6d7c074502e616d7be131bc7e2ddbf1578541f18",
-    "updated_at": "2026-11-09T12:21:08.698842+00:00",
+    "sha256": "4f25152dfdaf9acf1d76dce67deaea371f731095a5efacb9e75fd5acd743c092",
+    "updated_at": "2026-11-16T12:17:31.905570+00:00",
     "url": "https://docs.fortinet.com/product/fortigate/",
     "word_count": 474
   },
@@ -29,8 +29,8 @@
   },
   "panw-ngfw-pan-os-arch": {
     "char_count": 2945,
-    "sha256": "f2eb271c3ff59239b0f778eaacd7e0293609997a4e13dc06efcf3c7f516f754f",
-    "updated_at": "2026-10-26T09:30:27.100812+00:00",
+    "sha256": "060586a03e935447f6eefe5dfda37690702d6ad56d1b55f138f8ad68d2036997",
+    "updated_at": "2026-11-16T12:17:29.472369+00:00",
     "url": "https://docs.paloaltonetworks.com/pan-os",
     "word_count": 455
   },
@@ -49,10 +49,10 @@
     "word_count": 208
   },
   "panw-secops-cortex-xdr-arch": {
-    "char_count": 1549,
-    "sha256": "3d80ed3762f84f38e644d66a06559678850972fb6aed059f7491db885065ce3d",
-    "updated_at": "2026-09-28T10:19:10.211355+00:00",
+    "char_count": 666,
+    "sha256": "9beac92fc59f04e1d649e698221e68a002ae49dd5dcb7e94747bbcd111c5f0d1",
+    "updated_at": "2026-11-16T12:17:31.076544+00:00",
     "url": "https://docs.paloaltonetworks.com/cortex/cortex-xdr",
-    "word_count": 208
+    "word_count": 98
   }
 }
